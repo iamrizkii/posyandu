@@ -22,6 +22,7 @@ use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\DashboardAgendaController;
 use App\Http\Controllers\DashboardTimbangController;
 use App\Http\Controllers\DashboardLaporanController;
+use App\Http\Controllers\DashboardPengaduanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,6 +90,7 @@ Route::resource('/dashboard/agendas', DashboardAgendaController::class)->except(
 Route::resource('/dashboard/timbangs', DashboardTimbangController::class)->except('show')->middleware('auth');
 Route::get('/dashboard/laporan', [DashboardLaporanController::class, 'index'])->middleware('auth');
 Route::get('/dashboard/laporan/preview', [DashboardLaporanController::class, 'preview'])->middleware('auth');
+Route::resource('/dashboard/pengaduans', DashboardPengaduanController::class)->middleware('auth');
 
 // Informasi Imunisasi Routes (untuk Admin & Bidan)
 Route::prefix('/dashboard/informasi-imunisasi')->middleware(['auth', 'bidan'])->group(function () {

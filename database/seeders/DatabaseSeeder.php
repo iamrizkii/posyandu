@@ -38,13 +38,13 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password')
         ]);
 
-        User::create([
-            'name' => 'Kader Ani',
-            'username' => 'kader',
-            'level' => 'member',
-            'email' => 'kader@posyandu.com',
+        $userOrtu = User::create([
+            'name' => 'Ibu Siti',
+            'username' => 'ibusiti',
+            'level' => 'ortu',
+            'email' => 'ortu@posyandu.com',
             'password' => Hash::make('password')
-        ]);
+        ]); // Capture user
 
         // Create Jenis Imunisasi
         $jenisImunisasis = [
@@ -64,6 +64,7 @@ class DatabaseSeeder extends Seeder
 
         // Create Ortu (Parents)
         $ortu1 = Ortu::create([
+            'user_id' => $userOrtu->id, // Link to User
             'nama_ibu' => 'Siti Aminah',
             'nama_ayah' => 'Budi Santoso',
             'tempat_lhr' => 'Jakarta',

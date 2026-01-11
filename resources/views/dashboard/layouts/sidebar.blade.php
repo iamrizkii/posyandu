@@ -215,6 +215,19 @@
               </li>
             </ul>
           </li>
+        @endcan
+
+        <!-- Pengaduan - Accessible by all authenticated users -->
+        <li class="nav-item">
+          <a href="/dashboard/pengaduans" class="nav-link {{ Request::is('dashboard/pengaduans*') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-bullhorn"></i>
+            <p>
+              Pengaduan
+            </p>
+          </a>
+        </li>
+
+        @can('admin')
           <li class="nav-item">
             <a href="/dashboard/laporan" class="nav-link {{ Request::is('dashboard/laporan*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-print"></i>

@@ -11,16 +11,28 @@
   <!-- Right navbar links -->
   <ul class="navbar-nav ml-auto">
 
-    <!-- Notifications Dropdown Menu -->
+    <!-- User Dropdown Menu -->
     <li class="nav-item dropdown">
-      <a class="nav-link" data-toggle="dropdown" href="#">
-        <i class="far fa-user"></i>
+      <a class="nav-link" data-toggle="dropdown" href="#" style="display: flex; align-items: center; gap: 8px;">
+        <i class="far fa-user-circle" style="font-size: 1.3rem;"></i>
+        <span class="d-none d-md-inline">{{ auth()->user()->name }}</span>
+        <i class="fas fa-caret-down ml-1"></i>
       </a>
-      <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+      <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="min-width: 250px;">
+        <div class="dropdown-header bg-light">
+          <strong>{{ auth()->user()->name }}</strong>
+          <br>
+          <small class="text-muted">{{ auth()->user()->email }}</small>
+          <br>
+          <span class="badge badge-success mt-1">{{ ucfirst(auth()->user()->level) }}</span>
+        </div>
         <div class="dropdown-divider"></div>
         <form action="/logout" method="post">
           @csrf
-          <button type="submit" class="dropdown-item dropdown-footer">Logout </button>
+          <button type="submit" class="dropdown-item text-danger" style="display: flex; align-items: center; gap: 8px;">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </button>
         </form>
       </div>
     </li>

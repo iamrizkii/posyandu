@@ -37,6 +37,11 @@ class Anak extends Model
         return $this->hasMany(VitaminA::class);
     }
 
+    public function timbangs()
+    {
+        return $this->hasMany(Timbang::class);
+    }
+
     public function getAgeAttribute()
     {
         setlocale(LC_TIME, 'id_ID');

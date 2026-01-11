@@ -311,6 +311,10 @@
           <i class="fas fa-sign-in-alt"></i>
           <span>Masuk</span>
         </button>
+
+        <div class="register-link">
+          Belum punya akun? <a href="/register">Daftar sebagai Orang Tua</a>
+        </div>
       </form>
 
     </div>
